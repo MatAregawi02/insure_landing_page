@@ -1,0 +1,40 @@
+header{
+    // border : 1px solid blue;
+    display : flex;
+    gap : 548.78px;
+    align-items: center;
+    padding : 21px 0px 19px 168px;//I had to remove right padding to prevent text wrap
+    .logo{
+        width: 111.219px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+
+    nav{
+        // border : 2px solid red;
+        display : flex;
+        
+        
+        ul{
+            display : flex;
+            list-style: none;
+            align-items: center;
+            li{
+                a{
+                    text-decoration: none;
+                    margin-right: 26px;
+                }
+            }
+        }
+        .nav-button{
+            border: 1.5px solid #2C2830;
+            margin-left: 7px; //26 + 7 = 33px, actual gap
+            // padding : 13px 28.5px 12px 28.5px;
+            width: 146px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+    }
+  
+    
+}
