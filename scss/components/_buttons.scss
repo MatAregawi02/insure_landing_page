@@ -1,0 +1,17 @@
+@use 'base/variables' as *;
+.nav-button{
+    border: 1.5px solid #2C2830;
+    margin-left: 7px; //26 + 7 = 33px, actual gap
+    // padding : 13px 28.5px 12px 28.5px;
+    width: 146px;
+    height: 40px;
+    flex-shrink: 0;
+
+    @media(max-width : $mobile-view){
+       align-self: center;
+       border: 1.5px solid #FFF;
+       width : 327px;
+       height : 56px;
+       
+    }
+}

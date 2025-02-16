@@ -10,4 +10,6 @@ Additonal steps:
 - We need to install sass if necessary using npm install sass --save-dev
 
 I use google fonts(embed code) functionality. Is that the best way?
+
+Adding width, height and flex-shrink as such prevents shrinking upon resize
  

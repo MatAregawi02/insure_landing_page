@@ -1,4 +1,5 @@
 //typography for header-----------------------start
+@use 'variables' as *;
 .nav-link-typography{
     color: #837D88;
     text-align: center;
@@ -8,16 +9,41 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: 1.5px;
+
+    @media(max-width : $tablet-view){
+        font-size: 10px;
+    }
+    @media(max-width : $mobile-view){
+        font-size: 20px;
+        color : #FFF;
+        line-height: 40px;
+        letter-spacing: 1.364px;
+    }
 }
 
 header{
     a{
         @extend .nav-link-typography;
+
+        &:hover{
+            color : #2C2830;
+        }
     }
     .nav-button{
         @extend .nav-link-typography;
         color : #2C2830;
         background-color: #FAFAFA;
+
+        &:hover{
+            background-color: #2C2830;
+            color: #FFF;
+        }
+
+        @media(max-width : $mobile-view){
+            border: 1.5px solid #FFF;
+            background-color: #2C2830;
+            color : #FFF;
+        }
     }
 }
 //typography for header-----------------------end
