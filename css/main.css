@@ -58,7 +58,6 @@ body {
 }
 
 header {
-  border: 1px solid blue;
   display: flex;
   gap: 548.78px;
   height: 80px;
@@ -85,28 +84,47 @@ header {
 }
 @media (max-width: 600px) {
   header {
-    gap: 65%;
+    gap: 75%;
     padding-left: 15%;
   }
+}
+@media (max-width: 375px) {
+  header {
+    padding-left: 24px;
+    gap: 183px;
+  }
+}
+header .hidden {
+  display: none;
 }
 header .logo {
   width: 111.219px;
   height: 18px;
   flex-shrink: 0;
 }
-header .hamburger-icon {
+header .menu-icons {
   display: none;
   width: 32px;
   height: 32px;
   flex-shrink: 0;
 }
 @media (max-width: 600px) {
-  header .hamburger-icon {
+  header .menu-icons {
     display: inline-block;
   }
 }
+header .menu-icons svg {
+  display: none;
+}
+@media (max-width: 600px) {
+  header .menu-icons svg.hamburger-icon {
+    display: inline-block;
+  }
+}
+header .menu-icons svg.cross-icon {
+  display: none;
+}
 header nav {
-  border: 1px solid red;
   display: flex;
 }
 header nav ul {
