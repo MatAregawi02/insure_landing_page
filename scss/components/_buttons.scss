@@ -12,6 +12,11 @@
        border: 1.5px solid #FFF;
        width : 327px;
        height : 56px;
-       
-    }
+       }
+}
+.hero-btn{
+    @extend .nav-button;
+    background-color: #2D2641;
+    color : #FFF;
+    border: 1.5px solid #FFF;
 }
