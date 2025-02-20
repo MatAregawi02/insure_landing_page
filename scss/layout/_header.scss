@@ -1,142 +1,110 @@
 @use 'base/variables' as *;
 
-
-header{
-    // border : 1px solid blue;
-    display : flex;
-    gap : 548.78px;
-    background-color: #FFF;
-    height : 80px;
-    align-items: center;
-    padding : 21px 165px 19px 168px;
+.header-outer{
+    width: 100%;
     position : relative;
-    z-index : 3;
-    @media(max-width : $large-view){
-        gap : 35%;
-        padding-left: 10%;
-    }
-    @media(max-width : $desktop-view){
-        gap : 30%;
-        padding-left: 4%;
-    }
-    @media(max-width : $tablet-view){
-        gap : 20%;
-    }
-    @media(max-width : $mobile-view){
-        gap : 75%;
-        padding-left: 15%;
-    }
-    @media(max-width : 375px){
-        padding-left: 24px;
-        gap : 183px;
-    }
+    z-index : 4;
+    background-color: #FFF;
     
-    .hidden{
-        display : none;
-    }
+}
+header{
+    display : flex;
+    width : 100%;
+    // gap : 548.78px;
+    justify-content: space-between;
+    background-color: #FFF;
+    align-items: center;
+    padding : 20px 0; //padding right is a no no in this case
+    position : relative;
+    z-index : 5;
+   
     .logo{
         width: 111.219px;
         height: 18px;
         flex-shrink: 0;
     }
-    .menu-icons{
-        display : none;
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        
-        @media(max-width : $mobile-view){
-            display: inline-block;
-        }
-
-        svg{
-            display : none;
-
-            &.hamburger-icon{
-                @media(max-width : $mobile-view){
-                    display : inline-block;
-                }
-            }
-            &.cross-icon{
-                display : none;
-            }
-        }
-    }
-
-    nav{
-        // border : 1px solid red;
-        display : flex;
-        
-        
-        ul{
-            display : flex;
-            list-style: none;
-            align-items: center;
-            li{
-                a{
-                    text-decoration: none;
-                    margin-right: 26px;
-                    text-wrap: nowrap;//very important, prevents wrapping
-
-                    @media(max-width : $tablet-view){
-                        margin-right: 15px;
-                    }
-                    @media(max-width : $mobile-view){
-                        display : inline-block; //a is inline element by default
-                        margin-bottom: 24px;
-                    }
-                }
-               
-            }
-            @media(max-width : $mobile-view){
-                flex-direction: column;
-            }
-        }
-        @media(max-width : $mobile-view){
-            background-color: #2C2830 ;
-            width : 100%;
-            height: 587px;
-            padding: 40px 24px 0 24px;
-            flex-shrink: 0;
-            flex-direction: column;
-            background-image: url('/images/bg-pattern-mobile-nav.svg');
-            background-repeat: no-repeat;
-            background-position: bottom right;
-            background-size: 100%;
-            position : absolute;
-            top : 80px;
-            left : 0px;
-        }
-    }
+   
 }
 
-.hero{
-    max-width : 1440px;
-    width : 100%;
-    height : 600px;
+ 
+        
+.menu{
+           //no width and height, but work with padding.
+           //padding allows clicking on a link without actually having to click on the link itself.
+           //padding should not be fixed. Use responsive units like rem
+        li{
+            display : inline-block;
+            a{
+                display : inline-block;
+                text-decoration: none;
+                padding: 1.35rem 2.5rem;
+                text-wrap: nowrap;//very important, prevents wrapping
+
+               
+                }
+                a.nav-link-btn{
+                    display : inline-block;
+                    border: 1.5px solid #2C2830;
+                
+
+                    &:hover{
+                        cursor : pointer;
+                        background-color: #2C2830;
+                        color: #FFF;
+                    }
+                    @media(max-width : $mobile-view){
+                        width : 327px;
+                        height : 56px;
+                        border: 1.5px solid #FFF;
+                        background-color: #2C2830;
+                        color : #FFF;
+                    }
+                }
+                @media(max-width : $mobile-view){
+                    display : block;
+                }
+            }
+            
+        }
+      
+.hero-outer{
+    max-width : 100%;
     background-color: #2D2641;
     position : relative;
+    height : 600px; //is this correct?
 
     img#intro-left-bg{
         position : absolute;
         top : 414px;
+        left : 0;
     }
     img#intro-right-bg{
         position : absolute;
-        flex-shrink: 0;
-        right : 0;
-        top : -88px;
+        right : -151px;
+        top : -80px; //75px + 5px
         z-index : 1;
     }
+}
+.hero{
+    width : 100%;
+    // height : 600px; //do not use fixed heights(in most cases)
+    display : grid;
+    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 105px 650px;
+    position : relative;
+
+   
 
     .hero-content{
-        display : flex;
-        gap : 30px;
+        grid-column: 1/2;
+        grid-row: 1/2;
+      
         .hero-text-content{
             width: 540px;
             height: 304px;
             flex-shrink: 0;
-            margin: 105px 0px 127px 165px;
+            margin: 105px 0px 127px 0px;
             .horizontal-line{
                 content : '';
                 width : 150px;
@@ -146,11 +114,9 @@ header{
             }
 
             h1{
-                width: 540px;
-                height: 140px;
                 flex-shrink: 0;
                 margin-bottom: 18px;
-                padding-right: 50px; //to control text wrapping
+                padding-right: 50px; //to control text wrapping (padding & margin bottom)
             }
             p{
                 width: 540px;
@@ -160,12 +126,23 @@ header{
             }
         }
 
-        .hero-img{
-            width: 540px;
-            height: 650px;
-            flex-shrink: 0;
-            margin-top: 105px;
-        }
+      
+    }
+    .hero-img{
+        // width: 540px;
+        // height: 650px;
+        grid-column: 2/3;
+        grid-row : 2/3;
     }
 }
 
+@media(max-width : 700px){
+    .hero{
+        display : block; //overrides flex and grid
+
+        .hero-img{
+            width : 100%;
+            margin-top: 0;
+        }
+    }
+}
